@@ -15,10 +15,12 @@ import 'quill/dist/quill.bubble.css'
 
 import axios from 'axios'
 axios.defaults.baseURL = 'http://timemeetyou.com:8889/api/private/v1/'
+// 在request 拦截器中，展示进度条
 axios.interceptors.request.use(config => {
   config.headers.Authorization = window.sessionStorage.getItem('token')
   return config
 })
+
 Vue.prototype.$http = axios
 
 Vue.config.productionTip = false
